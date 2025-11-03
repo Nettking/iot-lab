@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  mqtt-broker:
+    image: eclipse-mosquitto:2
+    container_name: mqtt_broker
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+
+  dashboard:
+    build: ./dashboard
+    container_name: iot_dashboard
+    ports:
+      - "8501:8501"
+    environment:
+      - MQTT_BROKER=mqtt-broker
+    depends_on:
+      - mqtt-broker
