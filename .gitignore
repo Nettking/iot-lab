@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+.env.local
+.mypy_cache/
+.pytest_cache/
+coverage/
+.dashboard_data/
+*.csv
