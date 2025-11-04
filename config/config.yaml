@@ -1,0 +1,26 @@
+serial:
+  port: /dev/ttyUSB0
+  baudrate: 115200
+  reconnect_interval: 5
+mqtt:
+  host: localhost
+  port: 1883
+  publish_topic: lab/device1/data
+  command_topic: lab/device1/cmd
+logging:
+  level: INFO
+gateway:
+  device_id: arduino1
+  read_interval: 0.1
+dashboard:
+  history_size: 200
+  csv_output: data/stream.csv
+simulation:
+  interval: 1.0
+  sensors:
+    - name: temperature
+      min: 20
+      max: 30
+    - name: humidity
+      min: 40
+      max: 60
